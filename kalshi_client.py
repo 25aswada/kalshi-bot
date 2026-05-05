@@ -25,6 +25,14 @@ log = logging.getLogger("kalshi")
 
 
 def load_private_key(path: str):
+    # Try env var first (for Railway/cloud deployment)
+    import os
+    pem_data = os.environ.get("KALSHI_PRIVATE_KEY")
+    if pem_data:
+        # env var may have literal \n instead of newlines
+        pem_data = pem_data.replace("\\n", "\n").encode("utf-8")
+        return serialization.load_pem_private_key(pem_data, password=None, backend=default_backend())
+    # Fall back to file
     with open(path, "rb") as f:
         return serialization.load_pem_private_key(f.read(), password=None, backend=default_backend())
 
