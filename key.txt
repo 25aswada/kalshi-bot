@@ -1,0 +1,3 @@
+KALSHI_KEY_ID          = "ecdbcc7e-77a9-472f-9e6d-53d19663a217"         # the UUID shown on kalshi.com
+KALSHI_PRIVATE_KEY_PATH = "/Users/akshajsatyawada/Downloads/Kalshi/kalshi-private-key.pem"  # path to the downloaded .pem file
+KALSHI_BASE_URL        = "https://api.elections.kalshi.com/trade-api/v2"
